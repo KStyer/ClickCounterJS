@@ -18,21 +18,21 @@ function sendGreetingTo(to, greeting) {
 function iterateCounter() {
     return () => {
         console.log("click event handled");
-        let counterElement = document.getElementById("numberOfClicks");
-        let currentCount = parseInt(counterElement.innerText);
-        let newCount = currentCount + 1;
-        counterElement.innerText = newCount;
-        counterElement.appendChild
+        changeCounterValueBy(1);
     }
 }
 
 function iterateCounter2() {
     return () => {
         console.log("less click event handled");
-        let counterElement = document.getElementById("numberOfClicks");
-        let currentCount = parseInt(counterElement.innerText);
-        let newCount = currentCount - 1;
-        counterElement.innerText = newCount;
-        counterElement.appendChild;
+        changeCounterValueBy(-1);
     }
+}
+
+function changeCounterValueBy(changeAmount) {
+    let counterElement = document.getElementById("numberOfClicks");
+    let currentCount = parseInt(counterElement.innerText);
+    let newCount = currentCount + changeAmount;
+    counterElement.innerText = newCount;
+    counterElement.appendChild;
 }
