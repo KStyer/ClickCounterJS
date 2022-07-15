@@ -5,24 +5,24 @@ window.onload = (e) => {
     // message2=sendGreetingTo("Koto", "lets go fly a kite!")
     // console.log(message2)
     let clickTargetElement = document.getElementById("clickTarget");
-    clickTargetElement.addEventListener("click", iterateCounter());
+    clickTargetElement.addEventListener("click", incrementCounter());
 
     let clickTargetElementLess = document.getElementById("clickTarget2");
-    clickTargetElementLess.addEventListener("click", iterateCounter2());
+    clickTargetElementLess.addEventListener("click", decrementCounter());
 
 }
 
 function sendGreetingTo(to, greeting) {
     return "Hello There, " + to + " " + greeting;
 }
-function iterateCounter() {
+function incrementCounter() {
     return () => {
         console.log("click event handled");
         changeCounterValueBy(1);
     }
 }
 
-function iterateCounter2() {
+function decrementCounter() {
     return () => {
         console.log("less click event handled");
         changeCounterValueBy(-1);
