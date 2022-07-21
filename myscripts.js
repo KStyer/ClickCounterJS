@@ -51,45 +51,57 @@ function changeCounterValueBy(changeAmount) {
 
 function upAction() {
     return () => {
-        let circleElement = document.getElementById("blueCircle");
+        let circleElement = document.getElementById("hyenaPixel");
         // let currentTopMarginString = circleElement.style.marginTop;
-        let currentTopMargin = parseInt(circleElement.style.marginTop);
+        let currentTopMargin = parseFloat(circleElement.style.marginTop);
         // currentTopMargin = parseInt(currentTopMarginString);
-        let newTopMargin = currentTopMargin -5;
-        console.log("circle moved from " + currentTopMargin + " to " + newTopMargin);
-        circleElement.style.marginTop = newTopMargin;
+        let newTopMargin = currentTopMargin - 5;
+        console.log("hyena moved from " + currentTopMargin + " to " + newTopMargin);
+        if (newTopMargin >= 0) {
+            circleElement.style.marginTop = newTopMargin + "px";
+        }
+
     }
 }
 
 function downAction() {
     return () => {
-        let circleElement = document.getElementById("blueCircle");
+        let circleElement = document.getElementById("hyenaPixel");
         let currentBottomMargin = parseInt(circleElement.style.marginTop);
-        let newBottomMargin = currentBottomMargin +5;
-        console.log("circle moved from " + currentBottomMargin + " to " + newBottomMargin);
-        circleElement.style.marginTop = newBottomMargin;
+        let newBottomMargin = currentBottomMargin + 5;
+        console.log("hyena moved from " + currentBottomMargin + " to " + newBottomMargin);
+        if (newBottomMargin <= 175) {
+            circleElement.style.marginTop = newBottomMargin + "px";
+        }
+
     }
 
 }
 
 function leftAction() {
     return () => {
-        let circleElement = document.getElementById("blueCircle");
+        let circleElement = document.getElementById("hyenaPixel");
         let currentLeftMargin = parseInt(circleElement.style.marginLeft);
-        let newLeftMargin = currentLeftMargin -5;
-        console.log("circle moved from " + currentLeftMargin + " to " + newLeftMargin);
-        circleElement.style.marginLeft = newLeftMargin;
+        let newLeftMargin = currentLeftMargin - 5;
+        console.log("hyena moved from " + currentLeftMargin + " to " + newLeftMargin);
+        if (newLeftMargin >= 0) {
+            circleElement.style.marginLeft = newLeftMargin + "px";
+        }
+
     }
 
 }
 
 function rightAction() {
     return () => {
-        let circleElement = document.getElementById("blueCircle");
+        let circleElement = document.getElementById("hyenaPixel");
         let currentRightMargin = parseInt(circleElement.style.marginLeft);
-        let newRightMargin = currentRightMargin +5;
-        console.log("circle moved from " + currentRightMargin + " to " + newRightMargin);
-        circleElement.style.marginLeft = newRightMargin;
+        let newRightMargin = currentRightMargin + 5;
+        console.log("hyena moved from " + currentRightMargin + " to " + newRightMargin);
+        if (newRightMargin <= 260) {
+            circleElement.style.marginLeft = newRightMargin + "px";
+        }
+
     }
 
 }
