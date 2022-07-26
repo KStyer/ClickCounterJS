@@ -4,17 +4,20 @@
 
 <body>
     <h1>
-        Hello World
+        Hyena Defender
     </h1>
-    <button id="clickTarget">
+    <!-- <button id="clickTarget">
         Click me for more!
     </button>
 
     <button id="clickTarget2">
         Click me for less!
-    </button>
+    </button> -->
 
     <div>
+        <p>
+            SCORE
+        </p>
         <h2 id="numberOfClicks">
             0
         </h2>
@@ -39,25 +42,38 @@
                 </button>
             </td>
             <td>
-                <div style="width: 300px; height: 200px; border:1px solid black">
+                <div style="width: 300px; height: 200px; border:1px solid black; background-color: rgb(224, 215, 201);">
 
-                    <div id="hyenaPixel"
-                        style="margin-left: 130px; margin-top: 85px">
+                    <div id="hyenaPixel" style="margin-left: 130px; margin-top: 85px; position:absolute; z-index: 1;">
                         <img src="Img/hyena.png" alt="hyena pixel image">
                     </div>
 
-                    <div id="rockOne"
-                        style="margin-left: 0px; margin-top: 0px">
+                    <div id="rockOne" style="margin-left: 200px; margin-top: 10px; position:absolute">
                         <img src="Img/PixelRock1.png" alt="rock 1 image">
                     </div>
 
-                    <div id="rockTwo"
-                        style="margin-left: 0px; margin-top: 0px">
+                    <div id="rockTwo" style="margin-left: 0px; margin-top: 120px; position:absolute">
                         <img src="Img/PixelRock2.png" alt="rock 2 image">
                     </div>
 
+                    <div id="lionSkull" style="margin-left: 220px; margin-top: 160px; position:absolute">
+                        <img src="Img/LionSkull.png" alt="lion skull image">
+                    </div>
+
+                    <div id="grassOne" style="margin-left: 40px; margin-top: 15px; position:absolute">
+                        <img src="Img/Grass1.png" alt="grass image">
+                    </div>
+
+                    <div id="honeyBadger" style="margin-left: 15px; margin-top: 150px; position:absolute">
+                        <img src="Img/honeybadger.png" alt="badger image">
+                    </div>
+
+
+
                 </div>
+
             </td>
+            
             <td>
                 <button id="moveRight">
                     Right Arrow

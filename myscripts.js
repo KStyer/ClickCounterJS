@@ -24,6 +24,14 @@ window.onload = (e) => {
 
 }
 
+window.addEventListener("keydown", (e) => {
+    // changeCounterValueBy(e.code)
+    if (e.code == "KeyQ"){
+        let circleElement = document.getElementById("hyenaPixel");
+        circleElement.getElementsByTagName("img")[0].src="Img/PixelRock1.png";
+    }
+})
+
 function sendGreetingTo(to, greeting) {
     return "Hello There, " + to + " " + greeting;
 }
@@ -59,6 +67,16 @@ function upAction() {
         console.log("hyena moved from " + currentTopMargin + " to " + newTopMargin);
         if (newTopMargin >= 0) {
             circleElement.style.marginTop = newTopMargin + "px";
+            if (circleElement.style.transform.includes("scaleX(1)")) {
+                circleElement.style.transform = "rotate(-10deg)";
+            } else if (circleElement.style.transform.includes("scaleX(-1)")) {
+                circleElement.style.transform = "scaleX(-1) rotate(-10deg)";
+            } else {
+                circleElement.style.transform = "rotate(-10deg)";
+            }
+        
+        } else {
+            circleElement.getElementsByTagName("img")[0].src="Img/PixelRock1.png"
         }
 
     }
@@ -86,6 +104,7 @@ function leftAction() {
         console.log("hyena moved from " + currentLeftMargin + " to " + newLeftMargin);
         if (newLeftMargin >= 0) {
             circleElement.style.marginLeft = newLeftMargin + "px";
+            circleElement.style.transform = "scaleX(-1)"
         }
 
     }
@@ -100,6 +119,7 @@ function rightAction() {
         console.log("hyena moved from " + currentRightMargin + " to " + newRightMargin);
         if (newRightMargin <= 260) {
             circleElement.style.marginLeft = newRightMargin + "px";
+            circleElement.style.transform = "scaleX(1)"
         }
 
     }
