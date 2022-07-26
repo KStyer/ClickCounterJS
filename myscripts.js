@@ -1,17 +1,21 @@
+let honeyBadgerExists = false;
+let honeyBadgerInterval;
+let honeyBadgerElement;
+
 window.onload = (e) => {
     // let message=sendGreetingTo("Crumbsby", "want a snack?")
     // window.alert(message)
     // let message2
     // message2=sendGreetingTo("Koto", "lets go fly a kite!")
     // console.log(message2)
-    let clickTargetElement = document.getElementById("clickTarget");
-    clickTargetElement.addEventListener("click", incrementCounter());
+    // let clickTargetElement = document.getElementById("clickTarget");
+    // clickTargetElement.addEventListener("click", incrementCounter());
 
-    let clickTargetElementLess = document.getElementById("clickTarget2");
-    clickTargetElementLess.addEventListener("click", decrementCounter());
+    // let clickTargetElementLess = document.getElementById("clickTarget2");
+    // clickTargetElementLess.addEventListener("click", decrementCounter());
 
     let moveUpButton = document.getElementById("moveUp");
-    moveUpButton.addEventListener("click", upAction());
+    moveUpButton.addEventListener("click", upAction(document.getElementById("hyenaPixel")));
 
     let moveDownButton = document.getElementById("moveDown");
     moveDownButton.addEventListener("click", downAction());
@@ -22,7 +26,12 @@ window.onload = (e) => {
     let moveRightButton = document.getElementById("moveRight");
     moveRightButton.addEventListener("click", rightAction());
 
+    honeyBadgerInterval = setInterval(handleHoneyBadger(), 500);
+
+
 }
+
+
 
 window.addEventListener("keydown", (e) => {
     // changeCounterValueBy(e.code)
@@ -57,9 +66,34 @@ function changeCounterValueBy(changeAmount) {
     // counterElement.appendChild;
 }
 
-function upAction() {
+function handleHoneyBadger() {
     return () => {
-        let circleElement = document.getElementById("hyenaPixel");
+        let randomizer = Math.floor(Math.random() * 10);
+        // console.log("the random number generated was " + randomizer)
+        if (randomizer == 0 && honeyBadgerExists == false) {
+            honeyBadgerExists = true
+            honeyBadgerElement = document.createElement("div");
+            let imgElement = document.createElement("img");
+            imgElement.src="Img/honeybadger.png";
+            honeyBadgerElement.appendChild(imgElement);
+            honeyBadgerElement.style.posistion = "absolute";
+            // to do: the logic will be different for each side so may need to use a different random number generator to determine side he appears on
+            // will need to use if else like starting at line 100 (in upAction) to select which random number relates to which wall
+            honeyBadgerElement.style.marginTop = Math.floor(Math.random() * 175);
+            let backgroundPlains = document.getElementById("plains");
+            backgroundPlains.appendChild(honeyBadgerElement);
+        }
+        if (honeyBadgerExists == true) {
+            // to do: use another random number to determine which direction to go
+            // to do: refactor the other driections so that we can pass them the element to move as well because right now it can only move upwards
+            upAction(honeyBadgerElement).call()
+        }
+    }
+}
+
+function upAction(spriteToMove) {
+    return () => {
+        let circleElement = spriteToMove;
         // let currentTopMarginString = circleElement.style.marginTop;
         let currentTopMargin = parseFloat(circleElement.style.marginTop);
         // currentTopMargin = parseInt(currentTopMarginString);
